@@ -1,7 +1,6 @@
 import React ,{useState,useEffect}from 'react'
 import MaterialTable from 'material-table'
 
-
 function Data() {
     const columns =[
         { title: 'Id', field: 'id',editable:false },
@@ -34,7 +33,7 @@ function Data() {
             setData([...data, newData]);
             resolve();
           }, 1000)
-        console.log(newData)
+        // console.log(newData)
         }),
 
         onRowUpdate: (newData, oldData) =>
@@ -44,6 +43,8 @@ function Data() {
             const index = oldData.tableData.id;
             dataUpdate[index] = newData;
             setData([...dataUpdate]);
+            // console.log('newData',newData)
+            // console.log('oldData',oldData)
             resolve();
           }, 1000)
         }),
@@ -55,7 +56,7 @@ function Data() {
             const index = oldData.tableData.id;
             dataDelete.splice(index, 1);
             setData([...dataDelete]);
-            console.log(oldData)
+            // console.log(oldData)
             resolve();
           }, 1000)
         }),

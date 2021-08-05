@@ -3,7 +3,7 @@ import MaterialTable from 'material-table'
 
 function Data() {
     const columns =[
-        { title: 'Id', field: 'id',editable:false },
+        // { title: 'Id', field: 'id',editable:false },
         { title: 'Name', field: 'name' },
         { title: 'Username', field: 'username'},
         { title: 'Email', field: 'email'},
@@ -12,7 +12,7 @@ function Data() {
       ];
     
       const [data, setData] = useState([]);
-    
+     
       useEffect(()=>{
         fetch('https://jsonplaceholder.typicode.com/users')
         .then(res=>res.json())
@@ -33,18 +33,18 @@ function Data() {
             setData([...data, newData]);
             resolve();
           }, 1000)
-        // console.log(newData)
+        console.log(newData)
         }),
 
         onRowUpdate: (newData, oldData) =>
         new Promise((resolve, reject) => {
           setTimeout(() => {
             const dataUpdate = [...data];
-            const index = oldData.tableData.id;
+            const index = oldData.tableData;
             dataUpdate[index] = newData;
             setData([...dataUpdate]);
-            // console.log('newData',newData)
-            // console.log('oldData',oldData)
+            console.log('newData',newData)
+            console.log('oldData',oldData)
             resolve();
           }, 1000)
         }),
@@ -53,10 +53,10 @@ function Data() {
         new Promise((resolve, reject) => {
           setTimeout(() => {
             const dataDelete = [...data];
-            const index = oldData.tableData.id;
+            const index = oldData.tableData;
             dataDelete.splice(index, 1);
             setData([...dataDelete]);
-            // console.log(oldData)
+            console.log(oldData)
             resolve();
           }, 1000)
         }),

@@ -26,7 +26,7 @@ function Data() {
        title="User Data"
        columns={columns}
        data={data}
-       
+       options={{actionsColumnIndex:-1,addRowPosition:'first'}}
        editable={{
         onRowAdd: newData =>
         new Promise((resolve, reject) => {

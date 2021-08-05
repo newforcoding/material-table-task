@@ -1,10 +1,11 @@
 import React ,{useState,useEffect}from 'react'
 import MaterialTable from 'material-table'
+import './App.css'
 
 function Data() {
     const columns =[
         // { title: 'Id', field: 'id',editable:false },
-        { title: 'Name', field: 'name' },
+        { title: 'Name', field: 'name'},
         { title: 'Username', field: 'username'},
         { title: 'Email', field: 'email'},
         { title: 'Phone',field: 'phone'},
@@ -20,8 +21,9 @@ function Data() {
       },[])
     
     return (
-        <div>
-             <MaterialTable
+        <div className='data'>
+        <MaterialTable
+        className='table'
        title="User Data"
        columns={columns}
        data={data}

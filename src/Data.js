@@ -55,7 +55,7 @@ function Data() {
             const index = oldData.tableData.id;
             dataDelete.splice(index, 1);
             setData([...dataDelete]);
-
+            console.log(oldData)
             resolve();
           }, 1000)
         }),
